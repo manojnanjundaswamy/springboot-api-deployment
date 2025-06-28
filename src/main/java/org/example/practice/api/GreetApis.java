@@ -10,7 +10,9 @@ public class GreetApis {
 
     @GetMapping("/hello")
     public String sayHello(){
-        return "Hello, welcome!!..";
+        String podName = System.getenv("HOSTNAME");
+        String podIP = InetAddress.getLocalHost().getHostAddress();
+        return "Hello, welcome!!..Pod:"+podName+", IP:"+podIP;
     }
 
     @GetMapping("/goodbye")
