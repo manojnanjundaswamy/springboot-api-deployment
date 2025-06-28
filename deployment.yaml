@@ -6,7 +6,7 @@ metadata:
     app: springboot-deployment
     env: prod
 spec:
-  replicas: 21
+  replicas: 3
   selector:
     matchLabels:
       app: springboot-deployment
