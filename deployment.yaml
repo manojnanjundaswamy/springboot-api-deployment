@@ -6,7 +6,7 @@ metadata:
     app: springboot-deployment
     env: prod
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: springboot-deployment
@@ -21,6 +21,10 @@ spec:
         app: springboot-deployment
         tier: backend
         env: prod
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/path: "/actuator/prometheus"
+      prometheus.io/port: "8080"   # Change if your app listens on a different port
     spec:
       containers:
         - name: springboot-deployment
