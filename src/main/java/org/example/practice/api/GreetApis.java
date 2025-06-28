@@ -2,6 +2,7 @@ package org.example.practice.api;
 
 
 import org.springframework.web.bind.annotation.*;
+import java.net.InetAddress;
 
 @RestController
 public class GreetApis {
