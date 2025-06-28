@@ -12,7 +12,12 @@ public class GreetApis {
     @GetMapping("/hello")
     public String sayHello(){
         String podName = System.getenv("HOSTNAME");
-        String podIP = InetAddress.getLocalHost().getHostAddress();
+        String podIP;
+        try {
+            podIP = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            podIP = "unknown";
+        }
         return "Hello, welcome!!..Pod:"+podName+", IP:"+podIP;
     }
 
